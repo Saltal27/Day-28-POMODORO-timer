@@ -41,13 +41,17 @@ def start_timer():
     global break_time
 
     if break_time < 0:
+        # Work time
         timer.config(text="Work", foreground=RED)
         countdown(WORK_MIN * 60)
     else:
+        # Break time
         if reps % 4 == 0:
+            # long break
             countdown(LONG_BREAK_MIN * 60)
             timer.config(text="Break", foreground=GREEN)
         else:
+            # Short break
             countdown(SHORT_BREAK_MIN * 60)
             timer.config(text="Break", foreground=PINK)
 
@@ -76,6 +80,7 @@ def countdown(count):
     if count > 0:
         initial_timer = window.after(1000, countdown, count - 1)
     else:
+        # Count has reached 0 (end of work / break)
         global break_time
         global reps
         global cycles_num
@@ -84,6 +89,7 @@ def countdown(count):
             reps += 1
         else:
             if reps % 4 == 0:
+                # After long break (finished 1 new cycle)
                 check_marks.config(text="")
                 reps = 0
                 cycles_num += 1
