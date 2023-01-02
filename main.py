@@ -120,7 +120,7 @@ reset.grid(column=2, row=2)
 check_marks = Label(font=(FONT_NAME, 15, "bold"), foreground=GREEN, background=YELLOW)
 check_marks.grid(column=1, row=3)
 
-cycles_text = Label(foreground=RED, font=(FONT_NAME, 15, "bold"))
+cycles_text = Label(foreground=RED, font=(FONT_NAME, 15, "bold"), background=YELLOW)
 cycles_text.config(pady=15)
 
 
